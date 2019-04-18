@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	version="2.5">
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
 		<servlet-class>aiss.HelloWorldServlet</servlet-class>
@@ -12,9 +12,15 @@
 		<url-pattern>/helloworld</url-pattern>
 	</servlet-mapping>
 	
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+	 <!-- EventBrite files - retrieve -->
+    <servlet>
+        <servlet-name>EventBriteEventListController</servlet-name>
+        <servlet-class>aiss.controller.EventBrite.EventBriteEventListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventBriteEventListController</servlet-name>
+        <url-pattern>/eventBriteEventList</url-pattern>
+    </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
@@ -71,5 +77,38 @@
   </servlet-mapping>
   
   -->
+   <!--   EventBrite oAuth2 servlets    -->
+    <!-- EventBriteAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>EventBriteAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>EventBrite</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventBriteAuthController</servlet-name>
+        <url-pattern>/AuthController/EventBrite</url-pattern>
+    </servlet-mapping>
+    <!--EventBriteOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>EventBriteOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>EventBrite</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/eventBriteEventList</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventBriteOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/EventBrite</url-pattern> 
+    </servlet-mapping>
 
 </web-app>
