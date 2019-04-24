@@ -75,6 +75,7 @@
     <servlet-name>SpotifyOAuth2Callback</servlet-name>
     <url-pattern>/oauth2callback/Spotify</url-pattern>
   </servlet-mapping>
+-->
 
 
    <!--   EventBrite oAuth2 servlets    -->
