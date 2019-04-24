@@ -75,8 +75,8 @@
     <servlet-name>SpotifyOAuth2Callback</servlet-name>
     <url-pattern>/oauth2callback/Spotify</url-pattern>
   </servlet-mapping>
-  
-  -->
+
+
    <!--   EventBrite oAuth2 servlets    -->
     <!-- EventBriteAuthController-->
     <servlet>
@@ -109,6 +109,40 @@
     <servlet-mapping>
         <servlet-name>EventBriteOAuth2Callback</servlet-name>
         <url-pattern>/oauth2callback/EventBrite</url-pattern> 
+    </servlet-mapping>
+	
+	<!--   GoogleCalendar oAuth2 servlets    -->
+    <!-- GoogleCalendarAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>GoogleCalendarAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>GoogleCalendar</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoogleCalendarAuthController</servlet-name>
+        <url-pattern>/AuthController/GoogleCalendar</url-pattern>
+    </servlet-mapping>
+    <!--CalendarOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>GoogleCalendarOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>GoogleCalendar</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/eventBriteEventList</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoogleCalendarOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/GoogleCalendar</url-pattern> 
     </servlet-mapping>
 
 </web-app>
