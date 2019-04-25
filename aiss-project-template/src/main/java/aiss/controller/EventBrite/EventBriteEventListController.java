@@ -1,5 +1,6 @@
 package aiss.controller.EventBrite;
 
+import aiss.model.evenBrite.ListEvent;
 import aiss.model.resource.EventBriteResource;
 
 import java.io.IOException;

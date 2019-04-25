@@ -21,6 +21,16 @@
         <servlet-name>EventBriteEventListController</servlet-name>
         <url-pattern>/eventBriteEventList</url-pattern>
     </servlet-mapping>
+    
+    <!-- GoogleCalendar calendar - retrieve -->
+    <servlet>
+        <servlet-name>CalendarCalendarGetController</servlet-name>
+        <servlet-class>aiss.controller.Calendar.CalendarCalendarGetController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalendarCalendarGetController</servlet-name>
+        <url-pattern>//calendarOwnerCalendar</url-pattern>
+    </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
@@ -138,7 +148,7 @@
         </init-param>
         <init-param>
             <param-name>onSuccess</param-name>
-            <param-value>redirect:/eventBriteEventList</param-value>
+            <param-value>redirect:/calendarOwnerCalendar</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

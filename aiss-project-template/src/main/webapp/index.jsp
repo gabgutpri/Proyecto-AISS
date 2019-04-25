@@ -15,12 +15,20 @@
 			<input type="text" name="searchQuery" required/> 
 			<input type="submit" name="searchBtn" title="search" value="search">
 		</form>
+		<ul>
+			<li><a href="/CalendarOwnerCalendar.jsp">Calendario del usuario</a></li>
+		</ul>
 	</div>
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>
                 <ul>
                     <li><c:out value='${sessionScope["EventBrite-token"]}' /> </li>
+                </ul>
+            </li>
+            <li><strong>GoogleCalendar:</strong>
+                <ul>
+                    <li><c:out value='${sessionScope["GoogleCalendar-token"]}' /> </li>
                 </ul>
             </li>
         </ul>

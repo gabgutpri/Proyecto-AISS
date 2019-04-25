@@ -1,4 +1,4 @@
-package aiss.model.evenbrite;
+package aiss.model.evenBrite;
 
 import java.io.Serializable;
 

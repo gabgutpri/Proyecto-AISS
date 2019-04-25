@@ -19,7 +19,7 @@ public class CalendarCalendarGetController extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
     	String id = req.getParameter("id");
-        String accessToken = (String) req.getSession().getAttribute("Calendar-token");
+        String accessToken = (String) req.getSession().getAttribute("GoogleCalendar-token");
 
         if (accessToken != null && !"".equals(accessToken)) {
 
@@ -33,11 +33,11 @@ public class CalendarCalendarGetController extends HttpServlet{
                 req.getRequestDispatcher("/CalendarOwnerCalendar.jsp").forward(req, resp);
             } else {
                 log.warning("This user don't have the role necessary to read this calendar");
-                req.getRequestDispatcher("/?????????????").forward(req, resp);
+                req.getRequestDispatcher("/AuthController/GoogleCalendar").forward(req, resp);
             }
         } else {
             log.info("Trying to access Google Calendar without an access token, redirecting to OAuth servlet");
-            req.getRequestDispatcher("/AuthController/Calendar").forward(req, resp);
+            req.getRequestDispatcher("/AuthController/GoogleCalendar").forward(req, resp);
         }
     }
 
