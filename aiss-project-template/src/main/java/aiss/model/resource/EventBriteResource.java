@@ -1,7 +1,5 @@
 package aiss.model.resource;
 
-import aiss.model.evenBrite.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -12,13 +10,14 @@ import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
+import aiss.model.eventBrite.*;
+
 public class EventBriteResource {
 
     private static final Logger log = Logger.getLogger(EventBriteResource.class.getName());
 
     private final String access_token;
     private final String uri = "https://www.eventbriteapi.com/v3/";
-  //  private final String uri_upload = "https://www.googleapis.com/upload/drive/v2/files";
 
     public EventBriteResource(String access_token) {
         this.access_token = access_token;
@@ -28,14 +27,20 @@ public class EventBriteResource {
      *
      * @return Files
      */
-    public ListEvent getEvents(String id) {
+    public ListEvent getEvents(String word) {
         ClientResource cr = null;
+        cr = new ClientResource(uri + "events/search?q=" + word);
         ListEvent events = null;
+        ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
         try {
-            cr = new ClientResource(uri + "venues/" + id+"/events");
+           
             String result = cr.get(String.class);
             events = cr.get(ListEvent.class);
-
+            if(events==null) {
+            	log.warning("No events: " + cr.getResponse().getStatus());
+            }
         } catch (ResourceException re) {
             log.warning("Error when retrieving all files: " + cr.getResponse().getStatus());
         }
