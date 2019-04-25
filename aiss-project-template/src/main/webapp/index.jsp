@@ -10,11 +10,12 @@
     <body>
         <h1>Proyecto AISS</h1>
 
-        <h2>Servlets disponibles:</h2>
-        <ul>
-            <li><a href="/eventBriteEventList">Listado de eventos de EventBrite</a></li>
-        </ul>
-
+        <div id="searchDiv">
+		<form id="searchForm" action="eventBriteEventList" method="post">
+			<input type="text" name="searchQuery" required/> 
+			<input type="submit" name="searchBtn" title="search" value="search">
+		</form>
+	</div>
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>

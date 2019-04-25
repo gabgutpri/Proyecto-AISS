@@ -8,28 +8,20 @@
 
     <table id="events">
         <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Size</th>
-            <th>Last modification date</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Date</th>
         </tr>
-        <c:forEach items="${requestScope.files.items}" var="file">
+        <c:forEach items="${events.events}" var="event">  
             <tr>
-                <td><c:out value="${file.title}"/></td>
-                <td><c:out value="${file.fileSize}"/></td>
-                <td><c:out value="${file.modifiedDate}"/></td>
-                <td>
-                    <a href="/googleDriveFileUpdate?id=${file.id}"><img src="./images/edit.png" width="30px"></a>
-                </td>
-                <td>
-                    <a href="/googleDriveFileDelete?id=${file.id}"><img src="./images/delete.png" width="30px"></a>
-                </td>
+                <td><c:out value="${event.id}"/></td>
+                <td><c:out value="${event.name.text}"/></td>
+                <td><c:out value="${event.start.local}"/></td>
+                
             </tr>
-        </c:forEach>			
+       </c:forEach> 
     </table>
     <p>
-        <a href="/googleDriveFileEdit.jsp" class="button">Create new plain text file</a>
         <button type="button" onClick="javascript:window.location.href = '/'" class="button">Back</button>
 </div>
 
