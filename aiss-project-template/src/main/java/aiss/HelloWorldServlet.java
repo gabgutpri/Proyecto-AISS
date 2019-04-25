@@ -23,7 +23,7 @@ public class HelloWorldServlet extends HttpServlet {
 		resp.getWriter().println("Miembros:");
 		resp.getWriter().println("-Gabriel Gutierrez Prieto");
 		resp.getWriter().println("-Martín Arturo Guerrero Romero");
-		resp.getWriter().println("-Thibout Lopez");
+		resp.getWriter().println("-Thibaut Lopez");
 		resp.getWriter().println("-Abraham García Villalobos");
 		resp.getWriter().println("");
 		resp.getWriter().println("Descripción: ");
