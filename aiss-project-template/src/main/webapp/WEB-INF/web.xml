@@ -31,6 +31,16 @@
         <servlet-name>CalendarEventListController</servlet-name>
         <url-pattern>/calendarOwnerCalendar</url-pattern>
     </servlet-mapping>
+    
+    <!-- DarkSky forecast - retrieve -->
+    <servlet>
+        <servlet-name>DarkSkyController</servlet-name>
+        <servlet-class>aiss.controller.DarkSky.DarkSkyController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DarkSkyController</servlet-name>
+        <url-pattern>/forecast</url-pattern>
+    </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
