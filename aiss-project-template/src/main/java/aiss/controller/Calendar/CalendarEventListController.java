@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.calendar.CalendarList;
 import aiss.model.calendar.Calendars;
+import aiss.model.calendar.ListOfEvents;
 import aiss.model.resource.CalendarResource;
 
-public class CalendarCalendarGetController extends HttpServlet{
+public class CalendarEventListController extends HttpServlet{
 
-    private static final Logger log = Logger.getLogger(CalendarCalendarGetController.class.getName());
+    private static final Logger log = Logger.getLogger(CalendarEventListController.class.getName());
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -24,12 +25,12 @@ public class CalendarCalendarGetController extends HttpServlet{
         if (accessToken != null && !"".equals(accessToken)) {
 
             CalendarResource spResource = new CalendarResource(accessToken);
-            Calendars calendar = spResource.getCalendar(id);
             CalendarList calendarList = spResource.getCalendarList(id);
             String accessRole = calendarList.getAccessRole();
+            ListOfEvents events = spResource.listEvent(id);
 
             if (accessRole == "reader" || accessRole == "owner") {
-                req.setAttribute("calendar", calendar);
+                req.setAttribute("events", events);
                 req.getRequestDispatcher("/CalendarOwnerCalendar.jsp").forward(req, resp);
             } else {
                 log.warning("This user don't have the role necessary to read this calendar");

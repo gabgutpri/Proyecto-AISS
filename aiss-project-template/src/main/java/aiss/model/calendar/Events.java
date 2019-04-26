@@ -14,13 +14,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "kind",
     "etag",
     "id",
-    "status",
+    //"status",
     "htmlLink",
     "created",
     "updated",
     "summary",
-    //"description",
-    //"location",
+    "description",
+    "location",
     //"colorId",
     "creator",
     "organizer",
@@ -55,8 +55,6 @@ public class Events {
     private String etag;
     @JsonProperty("id")
     private String id;
-    @JsonProperty("status")
-    private String status;
     @JsonProperty("htmlLink")
     private String htmlLink;
     @JsonProperty("created")
@@ -65,6 +63,10 @@ public class Events {
     private String updated;
     @JsonProperty("summary")
     private String summary;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("location")
+    private String location;
     @JsonProperty("creator")
     private Creator creator;
     @JsonProperty("organizer")
@@ -112,16 +114,6 @@ public class Events {
         this.id = id;
     }
 
-    @JsonProperty("status")
-    public String getStatus() {
-        return status;
-    }
-
-    @JsonProperty("status")
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     @JsonProperty("htmlLink")
     public String getHtmlLink() {
         return htmlLink;
@@ -161,8 +153,28 @@ public class Events {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+    
+    @JsonProperty("description")
+    public String getDescription() {
+		return description;
+	}
 
-    @JsonProperty("creator")
+    @JsonProperty("description")
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+    @JsonProperty("location")
+	public String getLocation() {
+		return location;
+	}
+
+    @JsonProperty("location")
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	@JsonProperty("creator")
     public Creator getCreator() {
         return creator;
     }

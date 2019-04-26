@@ -24,12 +24,12 @@
     
     <!-- GoogleCalendar calendar - retrieve -->
     <servlet>
-        <servlet-name>CalendarCalendarGetController</servlet-name>
-        <servlet-class>aiss.controller.Calendar.CalendarCalendarGetController</servlet-class>
+        <servlet-name>CalendarEventListController</servlet-name>
+        <servlet-class>aiss.controller.Calendar.CalendarEventListController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CalendarCalendarGetController</servlet-name>
-        <url-pattern>//calendarOwnerCalendar</url-pattern>
+        <servlet-name>CalendarEventListController</servlet-name>
+        <url-pattern>/calendarOwnerCalendar</url-pattern>
     </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
