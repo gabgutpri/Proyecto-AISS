@@ -15,7 +15,7 @@
             <th>Description</th>
             <th>Location</th>
         </tr> 
-        <c:forEach items="${events.events}" var="event">  
+        <c:forEach items="${events.items}" var="event">  
             <tr>
                 <td><c:out value="${event.start.dateTime}"/></td>
                 <td><c:out value="${event.end.dateTime}"/></td>
