@@ -15,9 +15,6 @@
 			<input type="text" name="searchQuery" required/> 
 			<input type="submit" name="searchBtn" title="search" value="search">
 		</form>
-		<ul>
-			<li><a href="/calendarOwnerCalendar">Calendario del usuario</a></li>
-		</ul>
 	</div>
 	 <div id="pruebaDiv">
 	 	<label>Forecast test:</label>
@@ -29,6 +26,7 @@
 			<input type="submit" name="searchFore" title="searchForecast" value="searchForecast">
 		</form>
 	</div>
+	<li><a href="/calendarOwnerCalendar?id=primary">Calendario del usuario</a></li>
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>
