@@ -19,6 +19,16 @@
 			<li><a href="/CalendarOwnerCalendar.jsp">Calendario del usuario</a></li>
 		</ul>
 	</div>
+	 <div id="pruebaDiv">
+	 	<label>Forecast test:</label>
+		<form id="pruebaForm" action="index" method="get">
+			<label>Introduce coordenates (ex.:42.3601,-71.0589,):</label>
+			<input type="text" name="coordenates" required/>
+			<label>Introduce date (ex.:2019-05-26):</label>
+			<input type="text" name="date" required/> 
+			<input type="submit" name="searchFore" title="searchForecast" value="searchForecast">
+		</form>
+	</div>
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>

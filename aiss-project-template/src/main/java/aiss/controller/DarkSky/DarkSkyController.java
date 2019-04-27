@@ -13,9 +13,7 @@ import aiss.model.darkSky.Datum;
 import aiss.model.resource.DarkSkyResource;
 
 
-/**
- * Servlet implementation class SearchController
- */
+
 public class DarkSkyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,9 +34,13 @@ public class DarkSkyController extends HttpServlet {
 			request.setAttribute("forecast", dKResult.getSummary());
 			request.setAttribute("icon", dKResult.getIcon());
 		} else {
-			log.log(Level.SEVERE, "OMDb object: " + dKResult);
+			log.log(Level.SEVERE, "Datum object: " + dKResult);
 		}
-		request.getRequestDispatcher("").forward(request, response);
+		request.getRequestDispatcher("/forecast.jsp").forward(request, response);
 	}
+	
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        doGet(request, response);
+    }
 		
 }
