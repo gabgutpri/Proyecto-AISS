@@ -19,7 +19,7 @@
 	 <div id="pruebaDiv">
 	 	<label>Forecast test:</label>
 		<form id="pruebaForm" action="index" method="get">
-			<label>Introduce coordenates (ex.:42.3601,-71.0589,):</label>
+			<label>Introduce coordenates (ex.:42.3601,-71.0589):</label>
 			<input type="text" name="coordenates" required/>
 			<label>Introduce date (ex.:2019-05-26):</label>
 			<input type="text" name="date" required/> 

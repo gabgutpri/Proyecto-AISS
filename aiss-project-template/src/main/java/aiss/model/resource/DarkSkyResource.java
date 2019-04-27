@@ -21,7 +21,7 @@ public class DarkSkyResource {
 		ClientResource cr = null;
 		Datum result = null;
 		try {
-			cr = new ClientResource(URI+DARKSKY_API_KEY+"/"+coordenates+date+"T12:00:00"+QUERY);
+			cr = new ClientResource(URI+DARKSKY_API_KEY+"/"+coordenates+","+date+"T12:00:00"+QUERY);
 			result = cr.get(DailyTimeMachine.class).getDaily().getData().get(0);
 		}catch (ResourceException re){
 			log.warning("Error when retrieving forecast: " + cr.getResponse().getStatus());
