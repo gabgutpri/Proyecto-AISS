@@ -1,6 +1,7 @@
 package aiss.controller.EventBrite;
 
 import aiss.model.eventBrite.ListEvent;
+import aiss.model.eventBrite.Venue;
 import aiss.model.resource.EventBriteResource;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -25,7 +26,6 @@ public class EventBriteEventListController extends HttpServlet {
 
             EventBriteResource ebResource = new EventBriteResource(accessToken);
             ListEvent events = ebResource.getEvents(query);
-
             if (events != null) {
                 req.setAttribute("events", events);
                 req.getRequestDispatcher("/EventBriteEventListing.jsp").forward(req, resp);//Cambiar
@@ -33,6 +33,7 @@ public class EventBriteEventListController extends HttpServlet {
                 log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
                 req.getRequestDispatcher("/AuthController/EventBrite").forward(req, resp);//Cambiar
             }
+           
         } else {
             log.info("Trying to access EventBrite without an access token, redirecting to OAuth servlet");
             req.getRequestDispatcher("/AuthController/EventBrite").forward(req, resp);//Cambiar

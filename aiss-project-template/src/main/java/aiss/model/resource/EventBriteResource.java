@@ -48,6 +48,29 @@ public class EventBriteResource {
         return events;
 
     }
+    
+    public Venue getDireccion(Event event) {
+        ClientResource cr = null;
+        String venueId=event.getVenueId();
+        cr = new ClientResource(uri + "venues/" + venueId+"/");
+        Venue direcciones = null;
+        ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
+        try {
+           
+            String result = cr.get(String.class);
+            direcciones = cr.get(Venue.class);
+            if(direcciones==null) {
+            	log.warning("Sin direcciones: " + cr.getResponse().getStatus());
+            }
+        } catch (ResourceException re) {
+            log.warning("Error when retrieving all addresses: " + cr.getResponse().getStatus());
+        }
+
+        return direcciones;
+
+    }
 
     public Event getEvent(String id) {
 
@@ -65,91 +88,5 @@ public class EventBriteResource {
 
     }
 
-   /* public String insertFile(FileItem file, String content) {
-
-        ClientResource cr = null;
-        String newId = null;
-        try {
-            cr = new ClientResource(uri + "?access_token=" + access_token);
-            FileItem newFile = cr.post(file, FileItem.class);
-            newId = newFile.getId();
-            cr = new ClientResource(uri_upload + "/" + newId + "?uploadType=media&access_token=" + access_token);
-            Map<String, Object> headers = cr.getRequestAttributes();
-            headers.put("Content-Type", "text/plain");
-            cr.put(content);
-        } catch (ResourceException re) {
-            log.warning("Error when inserting file: " + cr.getResponse().getStatus());
-        }
-        return newId;
-    }
-
-    public boolean updateFile(FileItem file) {
-
-        ClientResource cr = null;
-        boolean result = true;
-        try {
-            cr = new ClientResource(uri + "/" + file.getId() + "?access_token=" + access_token);
-            cr.put(file);
-        } catch (ResourceException re) {
-            log.warning("Error when updating file: " + cr.getResponse().getStatus());
-            result = false;
-        }
-        return result;
-    }
-
-    public boolean deleteFile(String id) {
-
-        ClientResource cr = null;
-        boolean result = true;
-        try {
-            cr = new ClientResource(uri + "/" + id + "?access_token=" + access_token);
-            cr.delete();
-        } catch (ResourceException re) {
-            log.warning("Error when deleting file: " + cr.getResponse().getStatus());
-            result = false;
-        }
-        return result;
-
-    }
-
-    public String getFileContent(FileItem item) {
-        String result = null;
-        String contentURL = item.getDownloadUrl();
-        try {
-            ClientResource cr = new ClientResource(contentURL);
-            /*Map<String, Object> reqAttribs = cr.getRequestAttributes(); 
-	        Series<Header> headers = (Series<Header>)reqAttribs.get("org.restlet.http.headers"); 
-	        if (headers == null) { 
-	            headers = new Series<Header>(Header.class); 
-	            reqAttribs.put("org.restlet.http.headers", headers); 
-	        } 
-	        headers.add(new Header("Authorization:", "Bearer "+access_token));
-            ChallengeResponse chr = new ChallengeResponse(
-                    ChallengeScheme.HTTP_OAUTH_BEARER);
-            chr.setRawValue(access_token);
-            cr.setChallengeResponse(chr);
-
-            result = cr.get(String.class);
-        } catch (ResourceException re) {
-            log.warning("Error when obtaining the content of file: " + item.getId());
-        }
-        return result;
-    }
-
-    public boolean updateFileContent(String id, String content) {
-        ClientResource cr = new ClientResource(uri_upload + "/" + id + "?uploadType=media");
-        try {
-            ChallengeResponse chr = new ChallengeResponse(
-                    ChallengeScheme.HTTP_OAUTH_BEARER);
-            chr.setRawValue(access_token);
-            cr.setChallengeResponse(chr);
-            StringRepresentation rep = new StringRepresentation(content, MediaType.TEXT_PLAIN);
-            cr.put(rep);
-        } catch (ResourceException re) {
-            log.warning("Error when updating the content of file: " + id);
-            log.warning(re.getMessage());
-            return false;
-        }
-        return true;
-*/
+   
 }

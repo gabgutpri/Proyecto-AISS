@@ -2,6 +2,7 @@
 package aiss.model.eventBrite;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -21,14 +22,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "latitude",
     "longitude",
     "localized_address_display",
-    "localized_area_display"
+    "localized_area_display",
+    "localized_multi_line_address_display"
 })
 public class Address {
 
     @JsonProperty("address_1")
-    private String address1;
+    private Object address1;
     @JsonProperty("address_2")
-    private String address2;
+    private Object address2;
     @JsonProperty("city")
     private String city;
     @JsonProperty("region")
@@ -45,26 +47,28 @@ public class Address {
     private String localizedAddressDisplay;
     @JsonProperty("localized_area_display")
     private String localizedAreaDisplay;
+    @JsonProperty("localized_multi_line_address_display")
+    private List<String> localizedMultiLineAddressDisplay = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("address_1")
-    public String getAddress1() {
+    public Object getAddress1() {
         return address1;
     }
 
     @JsonProperty("address_1")
-    public void setAddress1(String address1) {
+    public void setAddress1(Object address1) {
         this.address1 = address1;
     }
 
     @JsonProperty("address_2")
-    public String getAddress2() {
+    public Object getAddress2() {
         return address2;
     }
 
     @JsonProperty("address_2")
-    public void setAddress2(String address2) {
+    public void setAddress2(Object address2) {
         this.address2 = address2;
     }
 
@@ -146,6 +150,16 @@ public class Address {
     @JsonProperty("localized_area_display")
     public void setLocalizedAreaDisplay(String localizedAreaDisplay) {
         this.localizedAreaDisplay = localizedAreaDisplay;
+    }
+
+    @JsonProperty("localized_multi_line_address_display")
+    public List<String> getLocalizedMultiLineAddressDisplay() {
+        return localizedMultiLineAddressDisplay;
+    }
+
+    @JsonProperty("localized_multi_line_address_display")
+    public void setLocalizedMultiLineAddressDisplay(List<String> localizedMultiLineAddressDisplay) {
+        this.localizedMultiLineAddressDisplay = localizedMultiLineAddressDisplay;
     }
 
     @JsonAnyGetter

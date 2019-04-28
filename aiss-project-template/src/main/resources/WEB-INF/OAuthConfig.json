@@ -4,7 +4,7 @@
         "clientId": "VZMQ4BBWVYXMAE7GSY",
         "clientSecret": "7DD5ECWBRIR3BE4GGULYQUFT75GOFWBLK5SOWGFOWMQTUNHHV3",
         "authorizationFormUrl": "https://www.eventbrite.com/oauth/authorize",
-        "scopes": ["https://www.googleapis.com/auth/drive"]
+        "scopes": []
     },
     "GoogleCalendar": {
     	"tokenUrl":"https://oauth2.googleapis.com/token",

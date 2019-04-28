@@ -11,13 +11,20 @@
             <th>Id</th>
             <th>Name</th>
             <th>Date</th>
+            <th>More info</th>
         </tr>
-        <c:forEach items="${events.events}" var="event">  
+        <c:forEach items="${events.events}" var="event">
+         
             <tr>
                 <td><c:out value="${event.id}"/></td>
                 <td><c:out value="${event.name.text}"/></td>
                 <td><c:out value="${event.start.local}"/></td>
-                
+                <td><div id="searchDiv">
+		<form id="searchForm" action="eventBriteEventInfo" method="post">
+			<input type="submit" name="searchBtn" title="info" value="info">
+		</form>
+		</div>
+		</td>
             </tr>
        </c:forEach> 
     </table>
