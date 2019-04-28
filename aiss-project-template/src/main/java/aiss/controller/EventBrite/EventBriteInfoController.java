@@ -20,7 +20,8 @@ public class EventBriteInfoController extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
     	String query = req.getParameter("searchQuery");
         String accessToken = (String) req.getSession().getAttribute("EventBrite-token");
-
+        String accessTokenAppEngine = (String) req.getSession().getAttribute("EventBriteAppEngine-token");
+        //El segundo es para cuando se utilice en AppEngine
         if (accessToken != null && !"".equals(accessToken)) {
 
             EventBriteResource ebResource = new EventBriteResource(accessToken);
