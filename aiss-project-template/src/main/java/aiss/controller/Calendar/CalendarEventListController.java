@@ -19,7 +19,7 @@ public class CalendarEventListController extends HttpServlet{
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-    	String id = "primary"; //Cambiarlo para hacerlo mas genérico: req.getParameter("id")
+    	String id = "primary"; //req.getParameter("id");
         String accessToken = (String) req.getSession().getAttribute("GoogleCalendar-token");
 
         if (accessToken != null && !"".equals(accessToken)) {

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.appengine.repackaged.org.joda.time.DateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -18,17 +19,30 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class End {
 
     @JsonProperty("dateTime")
-    private String dateTime;
+    private DateTime dateTime;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public static End create() {
+    	return new End(DateTime.now());
+    }
+    
+    public static End create(DateTime dateTime) {
+    	return new End(dateTime);
+	}
+
+    private End(DateTime dateTime) {
+		super();
+		this.dateTime = dateTime;
+	}
+    
     @JsonProperty("dateTime")
-    public String getDateTime() {
+    public DateTime getDateTime() {
         return dateTime;
     }
 
     @JsonProperty("dateTime")
-    public void setDateTime(String dateTime) {
+    public void setDateTime(DateTime dateTime) {
         this.dateTime = dateTime;
     }
 

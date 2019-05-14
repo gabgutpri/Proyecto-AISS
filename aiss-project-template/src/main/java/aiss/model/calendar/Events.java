@@ -83,8 +83,26 @@ public class Events {
     private Reminders reminders;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    
+    public static Events create() {
+    	return new Events("","","","",Start.create(), End.create());
+    }
+    
+    public static Events create(String id, String summary, String description, String location, Start start, End end) {
+    	return new Events(id,summary,description,location,start, end);
+	}
 
-    @JsonProperty("kind")
+    private Events(String id, String summary, String description, String location, Start start, End end) {
+		super();
+		this.id = id;
+		this.summary = summary;
+		this.description = description;
+		this.location = location;
+		this.start = start;
+		this.end = end;
+	}
+
+	@JsonProperty("kind")
     public String getKind() {
         return kind;
     }
