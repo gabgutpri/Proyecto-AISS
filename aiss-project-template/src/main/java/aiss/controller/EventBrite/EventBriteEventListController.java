@@ -21,7 +21,7 @@ public class EventBriteEventListController extends HttpServlet {
 		//log.log(Level.FINE, "Searching for OMDb movies that contain " + query);
 		
         String accessToken = (String) req.getSession().getAttribute("EventBrite-token");
-        String accessTokenAppEngine = (String) req.getSession().getAttribute("EventBriteAppEngine-token");
+        //String accessTokenAppEngine = (String) req.getSession().getAttribute("EventBriteAppEngine-token");
 
         if (accessToken != null && !"".equals(accessToken)) {
 

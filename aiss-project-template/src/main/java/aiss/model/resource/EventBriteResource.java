@@ -49,9 +49,10 @@ public class EventBriteResource {
 
     }
     
-    public Venue getDireccion(Event event) {
+    public Venue getDireccion(String venueId) {
         ClientResource cr = null;
-        String venueId=event.getVenueId();
+        //Event event=getEvent(id);
+       // String venueId=event.getVenueId();
         cr = new ClientResource(uri + "venues/" + venueId+"/");
         Venue direcciones = null;
         ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
@@ -65,7 +66,7 @@ public class EventBriteResource {
             	log.warning("Sin direcciones: " + cr.getResponse().getStatus());
             }
         } catch (ResourceException re) {
-            log.warning("Error when retrieving all addresses: " + cr.getResponse().getStatus());
+            log.warning("Error when retrieving  address: " + cr.getResponse().getStatus());
         }
 
         return direcciones;
@@ -77,7 +78,7 @@ public class EventBriteResource {
         ClientResource cr = null;
         Event event = null;
         try {
-            cr = new ClientResource(uri + "events/" + id + "/orders");
+            cr = new ClientResource(uri + "events/" + id +"/");
             event = cr.get(Event.class);
 
         } catch (ResourceException re) {

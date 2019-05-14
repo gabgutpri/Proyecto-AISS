@@ -2,8 +2,8 @@
     
     "EventBrite": { 
         "tokenUrl": "https://www.eventbrite.com/oauth/token",
-        "clientId": "2TS36ZXTAMZKYFCSC4",
-        "clientSecret": "PMZSB4K5V6RO6OPY2IYUCXQ3IT7QCKRBEHJX45TCVOK7J5SPRK",
+        "clientId": "VZMQ4BBWVYXMAE7GSY",
+        "clientSecret": "7DD5ECWBRIR3BE4GGULYQUFT75GOFWBLK5SOWGFOWMQTUNHHV3",
         "authorizationFormUrl": "https://www.eventbrite.com/oauth/authorize",
         "scopes": []
     },

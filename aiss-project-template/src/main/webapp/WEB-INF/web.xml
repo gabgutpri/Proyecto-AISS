@@ -27,7 +27,7 @@
         <servlet-class>aiss.controller.EventBrite.EventBriteInfoController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>EventBriteEventListController</servlet-name>
+        <servlet-name>EventBriteInfoController</servlet-name>
         <url-pattern>/eventBriteEventInfo</url-pattern>
     </servlet-mapping>
     

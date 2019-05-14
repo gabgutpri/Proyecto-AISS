@@ -11,7 +11,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Date</th>
-            <th>More info</th>
+            <th>Venue id</th>
+            <th>Info weather</th>
         </tr>
         <c:forEach items="${events.events}" var="event">
          
@@ -19,11 +20,8 @@
                 <td><c:out value="${event.id}"/></td>
                 <td><c:out value="${event.name.text}"/></td>
                 <td><c:out value="${event.start.local}"/></td>
-                <td><div id="searchDiv">
-		<form id="searchForm" action="eventBriteEventInfo" method="post">
-			<input type="submit" name="searchBtn" title="info" value="info">
-		</form>
-		</div>
+                <td><c:out value="${event.venueId}"/></td>
+               <td><a href="eventBriteEventInfo?venueId=${event.venueId}"><img src="./images/lluvia.png" width="30px"></a> 
 		</td>
             </tr>
        </c:forEach> 
