@@ -13,6 +13,7 @@
             <th>Date</th>
             <th>Venue id</th>
             <th>Info weather</th>
+            <th>Calendar</th>
         </tr>
         <c:forEach items="${events.events}" var="event">
          
@@ -21,7 +22,8 @@
                 <td><c:out value="${event.name.text}"/></td>
                 <td><c:out value="${event.start.local}"/></td>
                 <td><c:out value="${event.venueId}"/></td>
-               <td><a href="eventBriteEventInfo?venueId=${event.venueId}"><img src="./images/lluvia.png" width="30px"></a> 
+               <td><a href="eventBriteEventInfo?venueId=${event.venueId}&eventId=${event.id}"><img src="./images/lluvia.png" width="30px"></a>
+               <td><a href="addingEvent?name=${event.name.text}&start=${event.start.local}&end=${event.end.local}"><img src="./images/GoogleCalendarLogo.png" width="30px"></a> 
 		</td>
             </tr>
        </c:forEach> 
