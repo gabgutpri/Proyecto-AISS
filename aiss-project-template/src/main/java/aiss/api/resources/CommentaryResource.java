@@ -10,12 +10,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
+
+import org.jboss.resteasy.spi.BadRequestException;
+import org.jboss.resteasy.spi.NotFoundException;
+
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import javax.ws.rs.core.UriBuilder;
 
 import aiss.model.Commentary;
 import aiss.model.repository.CommentaryListRepository;
 import aiss.model.repository.MapCommentaryListRepository;
 
+import java.net.URI;
 import java.util.Collection;
 
 
@@ -40,7 +47,7 @@ public class CommentaryResource {
 	@Produces("application/json")
 	public Collection<Commentary> getAll()
 	{
-		return null;
+		return repository.getAllCommentaries();
 	}
 	
 	
@@ -49,15 +56,33 @@ public class CommentaryResource {
 	@Produces("application/json")
 	public Commentary get(@PathParam("id") String commentaryId)
 	{
+		Commentary list = repository.getCommentary(commentaryId);
 		
-		return null;
+		if(list == null) {
+			throw new NotFoundException("The commentary with id = " + commentaryId + "was not found");
+		}
+		
+		return list;
 	}
 	
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response addCommentary(@Context UriInfo uriInfo, Commentary comment) {
-		return null;
+		if(comment.getTitle() == null || "".equals(comment.getTitle())) {
+			throw new BadRequestException("The title of the commentary must not be null");
+		}
+		if(comment.getBody() == null) {
+			throw new BadRequestException("The body property can not be null");
+		}
+		
+		repository.addCommentary(comment);
+		
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
+		URI uri = ub.build(comment.getId());
+		ResponseBuilder resp = Response.created(uri);
+		resp.entity(comment);
+		return resp.build();
 	}
 	
 	
@@ -65,13 +90,43 @@ public class CommentaryResource {
 	@Consumes("application/json")
 	@Path("/{id}")
 	public Response updateCommentary(@PathParam("id") Commentary comment) {
-		return null;
+		Commentary oldComment = repository.getCommentary(comment.getId());
+		if(oldComment == null) {
+			throw new NotFoundException("The commentary with id = " + oldComment + "was not found");
+		}
+		if(comment.getBody() == null) {
+			throw new BadRequestException("The body property can not be null");
+		}
+		
+		if(!oldComment.getTitle().equals(comment.getTitle())) {
+			return Response.status(javax.ws.rs.core.Response.Status.CONFLICT).build();
+		}
+		
+		//Update title
+		if(comment.getTitle()!=null) {
+			oldComment.setTitle(comment.getTitle());
+		}
+		
+		//Update body
+		if(comment.getBody()!=null) {
+			oldComment.setBody(comment.getBody());
+		}
+		
+		return Response.noContent().build();
 	}
 	
 	@DELETE
 	@Path("/{id}")
 	public Response removeCommentary(@PathParam("id") String commentaryId) {
-		return null;
+		
+		Commentary toberemoved = repository.getCommentary(commentaryId);
+		
+		if(toberemoved == null) {
+			throw new NotFoundException("The commentary with id = " + commentaryId + "was not found");
+		} else {
+			repository.deleteCommentary(commentaryId);
+		}
+		return Response.noContent().build();
 	}
 	
 }
