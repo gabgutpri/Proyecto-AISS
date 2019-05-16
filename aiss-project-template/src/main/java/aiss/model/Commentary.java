@@ -7,7 +7,7 @@ public class Commentary {
 	private String body;
 
 	public Commentary() {
-		
+
 	}
 
 	public Commentary(String title, String body) {
@@ -16,7 +16,7 @@ public class Commentary {
 	}
 	
 	public Commentary(String id, String title, String body) {
-		this.id=id;
+		this.id = id;
 		this.body = body;
 	}
 
