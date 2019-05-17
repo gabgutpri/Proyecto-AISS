@@ -14,5 +14,6 @@
     <p>
         <button type="button" onClick="javascript:window.location.href = '/'" class="button">Back</button>
 </div>
+<a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
 
 <%@include file="includes/footer.jsp"%>
