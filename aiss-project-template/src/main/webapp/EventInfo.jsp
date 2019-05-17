@@ -11,6 +11,7 @@
                 <p>Longitude: <c:out value="${venue.longitude}"/></p>
                 <p>Weather at the start day of the event: <c:out value="${forecast}"/></p>
                 <p><c:out value="${icon}"/></p>
+                <img alt="Map from location" src="${map}">
     <p>
         <button type="button" onClick="javascript:window.location.href = '/'" class="button">Back</button>
 </div>
