@@ -23,7 +23,7 @@
                 <td><c:out value="${event.start.local}"/></td>
                 <td><c:out value="${event.venueId}"/></td>
                <td><a href="eventBriteEventInfo?venueId=${event.venueId}&eventId=${event.id}&date=${event.start.local}"><img src="./images/lluvia.png" width="30px"></a>
-               <td><a href="addingEvent?name=${event.name.text}&start=${event.start.local}&end=${event.end.local}"><img src="./images/GoogleCalendarLogo.png" width="30px"></a> 
+               <td><a href="addingEvent?venueId=${event.venueId}&name=${event.name.text}&start=${event.start.local}&end=${event.end.local}"><img src="./images/GoogleCalendarLogo.png" width="30px"></a> 
 		</td>
             </tr>
        </c:forEach> 
