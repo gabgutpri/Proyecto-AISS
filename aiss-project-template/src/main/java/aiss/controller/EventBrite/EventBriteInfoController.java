@@ -1,6 +1,7 @@
 package aiss.controller.EventBrite;
 
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -8,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import aiss.model.darkSky.Datum;
 import aiss.model.eventBrite.Event;
 import aiss.model.eventBrite.ListEvent;
 import aiss.model.eventBrite.Venue;
+import aiss.model.resource.DarkSkyResource;
 import aiss.model.resource.EventBriteResource;
 
 public class EventBriteInfoController extends HttpServlet {
@@ -21,6 +24,7 @@ public class EventBriteInfoController extends HttpServlet {
     	log.info("entra.");
     	String queryVenue = req.getParameter("venueId");
     	String queryEvent = req.getParameter("eventId");
+    	String date = req.getParameter("date");
         String accessToken = (String) req.getSession().getAttribute("EventBrite-token");
         //String accessTokenAppEngine = (String) req.getSession().getAttribute("EventBriteAppEngine-token");
         //El segundo es para cuando se utilice en AppEngine
@@ -44,6 +48,19 @@ public class EventBriteInfoController extends HttpServlet {
             if (venue != null) {
             	log.info("Adios.");
                 req.setAttribute("venue", venue);
+                
+                String coordenates = venue.getLatitude()+","+venue.getLongitude();
+                log.log(Level.FINE, "Searching for forecast in "+coordenates+" in date "+date);
+        		DarkSkyResource dK = new DarkSkyResource();
+        		Datum dKResult = dK.getLatAltDayForecast(coordenates, date);
+
+        		if (dKResult!=null){
+        			req.setAttribute("forecast", dKResult.getSummary());
+        			req.setAttribute("icon", dKResult.getIcon());
+        		} else {
+        			log.log(Level.SEVERE, "Datum object: " + dKResult);
+        		}
+        		
                 req.getRequestDispatcher("/EventInfo.jsp").forward(req, resp);//Cambiar
             } else {
                 log.info("The addresses returned are null... probably your token has experied. Redirecting to OAuth servlet.");
