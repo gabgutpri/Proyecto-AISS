@@ -1,7 +1,7 @@
 <%@include file="includes/header.jsp"%>
 <%@include file="includes/footer.jsp"%>
 
-<h1>Events</h1>
+<h1>Calendar's Events</h1>
 
 <div class="container">
 
@@ -9,19 +9,22 @@
 
     <table id="event">
         <tr>
+        	<th>Name</th>
             <th>Start date</th>
             <th>End date</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Location</th>
+            <th>Venue Id</th>
+            <th>Weather information</th>
+            <th>Delete event</th>
+            
         </tr> 
         <c:forEach items="${events.items}" var="event">  
             <tr>
+            	<td><c:out value="${event.summary}"/></td>
                 <td><c:out value="${event.start.dateTime}"/></td>
                 <td><c:out value="${event.end.dateTime}"/></td>
-                <td><c:out value="${event.summary}"/></td>
                 <td><c:out value="${event.description}"/></td>
-                <td><c:out value="${event.location}"/></td>
+                <td><a href="eventBriteEventInfo?venueId=${event.description}&eventId=${event.id}&date=${event.start.dateTime}"><img src="./images/lluvia.png" width="30px"></a></td>
+                <td><a href="deletingEvent?id=${event.id}"><img src="./images/GoogleCalendarLogo.png" width="30px"></a></td>
             </tr>
        </c:forEach> 
     </table>

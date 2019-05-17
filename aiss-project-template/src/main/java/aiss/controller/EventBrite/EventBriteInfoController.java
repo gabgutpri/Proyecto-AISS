@@ -15,6 +15,7 @@ import aiss.model.eventBrite.ListEvent;
 import aiss.model.eventBrite.Venue;
 import aiss.model.resource.DarkSkyResource;
 import aiss.model.resource.EventBriteResource;
+import aiss.model.resource.HereMapsResource;
 
 public class EventBriteInfoController extends HttpServlet {
 	private static final Logger log = Logger.getLogger(EventBriteInfoController.class.getName());

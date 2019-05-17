@@ -41,6 +41,26 @@
         <url-pattern>/calendarOwnerCalendar</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>CalendarInsertEventController</servlet-name>
+        <servlet-class>aiss.controller.Calendar.CalendarInsertEventController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalendarInsertEventController</servlet-name>
+        <url-pattern>/addingEvent</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CalendarDeleteEventController</servlet-name>
+        <servlet-class>aiss.controller.Calendar.CalendarDeleteEventController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalendarDeleteEventController</servlet-name>
+        <url-pattern>/deletingEvent</url-pattern>
+    </servlet-mapping>
+    
+
+    
     <!-- DarkSky forecast - retrieve -->
     <servlet>
         <servlet-name>DarkSkyController</servlet-name>
