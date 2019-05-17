@@ -26,7 +26,7 @@
 			<input type="submit" name="searchFore" title="searchForecast" value="searchForecast">
 		</form>
 	</div>
-	<li><a href="/calendarOwnerCalendar">Calendario del usuario</a></li> <!-- Añadir "?id=primary" con un clemdarOwnerCalendar mas genérico -->
+	<li><a href="/calendarOwnerCalendar">User's calendar</a></li> <!-- Añadir "?id=primary" con un clemdarOwnerCalendar mas genérico -->
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>

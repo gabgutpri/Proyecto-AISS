@@ -15,6 +15,7 @@ import aiss.model.eventBrite.ListEvent;
 import aiss.model.eventBrite.Venue;
 import aiss.model.resource.DarkSkyResource;
 import aiss.model.resource.EventBriteResource;
+import aiss.model.resource.HereMapsResource;
 
 public class EventBriteInfoController extends HttpServlet {
 	private static final Logger log = Logger.getLogger(EventBriteInfoController.class.getName());
@@ -36,6 +37,12 @@ public class EventBriteInfoController extends HttpServlet {
                 req.setAttribute("venue", venue);
                 
                 String coordenates = venue.getLatitude()+","+venue.getLongitude();
+		
+		log.log(Level.FINE, "Image from "+coordenates);
+                HereMapsResource mp = new HereMapsResource();
+                String map = mp.getStaticMap(coordenates);
+                req.setAttribute("map", map);
+		    
                 log.log(Level.FINE, "Searching for forecast in "+coordenates+" in date "+date);
         		DarkSkyResource dK = new DarkSkyResource();
         		Datum dKResult = dK.getLatAltDayForecast(coordenates, date);

@@ -8,42 +8,40 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.appengine.repackaged.org.joda.time.DateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
 	//"date",
-    "dateTime"
-	//"timeZone"
+    "dateTime",
+	"timeZone"
 })
 public class Start {
 
     @JsonProperty("dateTime")
-    private DateTime dateTime;
+    private String dateTime;
+    @JsonProperty("timeZone")
+    private String timeZone;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     
-    public static Start create() {
-    	return new Start(DateTime.now());
-    }
-
-    public static Start create(DateTime dateTime) {
-    	return new Start(dateTime);
-	}
-    
-    private Start(DateTime dateTime) {
-		super();
-		this.dateTime = dateTime;
-	}
-
 	@JsonProperty("dateTime")
-    public DateTime getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
     @JsonProperty("dateTime")
-    public void setDateTime(DateTime dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+    
+    @JsonProperty("timeZone")
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    @JsonProperty("timeZone")
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     @JsonAnyGetter
