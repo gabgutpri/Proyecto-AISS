@@ -59,31 +59,6 @@
         <url-pattern>/deletingEvent</url-pattern>
     </servlet-mapping>
     
-
-    
-    <!-- DarkSky forecast - retrieve -->
-    <servlet>
-        <servlet-name>DarkSkyController</servlet-name>
-        <servlet-class>aiss.controller.DarkSky.DarkSkyController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DarkSkyController</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-	
-    <servlet>
-        <description/>
-        <servlet-name>EventBriteAuthController</servlet-name>
-        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
-        <init-param>
-            <param-name>provider</param-name>
-            <param-value>EventBrite</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EventBriteAuthController</servlet-name>
-        <url-pattern>/AuthController/EventBrite</url-pattern>
-    </servlet-mapping>
     <!--EventBriteOAuth2Callback-->
     <servlet>
         <description/>
