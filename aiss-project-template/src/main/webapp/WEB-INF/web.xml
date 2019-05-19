@@ -62,6 +62,20 @@
     <!--EventBriteOAuth2Callback-->
     <servlet>
         <description/>
+        <servlet-name>EventBriteAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>EventBrite</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventBriteAuthController</servlet-name>
+        <url-pattern>/AuthController/EventBrite</url-pattern>
+    </servlet-mapping>
+    <!--EventBriteOAuth2Callback-->
+    <servlet>
+        <description/>
         <servlet-name>EventBriteOAuth2Callback</servlet-name>
         <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
         <init-param>
@@ -77,6 +91,7 @@
         <servlet-name>EventBriteOAuth2Callback</servlet-name>
         <url-pattern>/oauth2callback/EventBrite</url-pattern> 
     </servlet-mapping>
+
 	
 	<!--   GoogleCalendar oAuth2 servlets    -->
     <!-- GoogleCalendarAuthController-->
