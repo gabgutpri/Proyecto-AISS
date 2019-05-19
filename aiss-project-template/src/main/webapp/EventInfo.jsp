@@ -14,7 +14,7 @@
                 <p>Longitude: <c:out value="${venue.longitude}"/></p>
                 <p>Forecast for the event's starting day: <c:out value="${forecast}"/></p>
                 
-                <div id="icono" atri="${icon}"/>
+                <div id="icono" atri="${icon}">
                 <canvas id="icon" width="128" height="128"></canvas>
                 </div>
                 
@@ -47,7 +47,13 @@
 				
                 <img alt="Map from location" src="${map}">
     <p>
-        <button type="button" onClick="javascript:window.location.href = '/'" class="button">Event browser</button>
+        <button type="button" onclick="goBack()" class="button">Back</button> 
+        
+		<script>
+		function goBack() {
+ 			window.history.back();
+		}
+		</script>
 </div>
 <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
 
