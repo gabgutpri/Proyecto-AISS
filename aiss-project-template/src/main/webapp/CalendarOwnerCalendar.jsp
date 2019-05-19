@@ -13,7 +13,7 @@
             <th>Start date</th>
             <th>End date</th>
             <th>Venue Id</th>
-            <th>Weather information</th>
+            <th>More info</th>
             <th>Delete event</th>
             
         </tr> 
@@ -23,7 +23,7 @@
                 <td><c:out value="${event.start.dateTime}"/></td>
                 <td><c:out value="${event.end.dateTime}"/></td>
                 <td><c:out value="${event.description}"/></td>
-                <td><a href="eventBriteEventInfo?venueId=${event.description}&eventId=${event.id}&date=${event.start.dateTime}"><img src="./images/lluvia.png" width="30px"></a></td>
+                <td><a href="eventBriteEventInfo?venueId=${event.description}&eventId=${event.id}&date=${event.start.dateTime}"><img src="./images/info.jpg" width="30px"></a></td>
                 <td><a href="deletingEvent?id=${event.id}"><img src="./images/GoogleCalendarLogo.png" width="30px"></a></td>
             </tr>
        </c:forEach> 

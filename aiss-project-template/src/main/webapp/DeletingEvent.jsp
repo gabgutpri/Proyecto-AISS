@@ -6,5 +6,5 @@
 <div class="container">
 	<p class="message">${message}</p>
     <p>
-        <button type="button" onClick="javascript:window.location.href = '/'" class="button">Back</button>
+        <button type="button" onClick="javascript:window.location.href = '/calendarOwnerCalendar'" class="button">Back</button>
 </div>

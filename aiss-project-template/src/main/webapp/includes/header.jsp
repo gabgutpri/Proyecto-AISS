@@ -6,7 +6,6 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <title>Lab7 - OAuth2</title>
+        <title>Planeando</title>
     </head>
     <body>
