@@ -26,7 +26,7 @@ import java.net.URI;
 import java.util.Collection;
 
 
-@Path("/comentarios")
+@Path("/comentaries")
 public class CommentaryResource {
 
 	public static CommentaryResource _instance=null;
@@ -36,8 +36,7 @@ public class CommentaryResource {
 		repository=MapCommentaryListRepository.getInstance();
 	}
 	
-	public static CommentaryResource getInstance()
-	{
+	public static CommentaryResource getInstance() {
 		if(_instance==null)
 			_instance=new CommentaryResource();
 		return _instance; 
@@ -45,8 +44,7 @@ public class CommentaryResource {
 	
 	@GET
 	@Produces("application/json")
-	public Collection<Commentary> getAll()
-	{
+	public Collection<Commentary> getAll() {
 		return repository.getAllCommentaries();
 	}
 	
@@ -54,7 +52,7 @@ public class CommentaryResource {
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public Commentary get(@PathParam("id") String commentaryId)
+	public Commentary getCommentary(@PathParam("id") String commentaryId)
 	{
 		Commentary list = repository.getCommentary(commentaryId);
 		
@@ -89,7 +87,7 @@ public class CommentaryResource {
 	@PUT
 	@Consumes("application/json")
 	@Path("/{id}")
-	public Response updateCommentary(@PathParam("id") Commentary comment) {
+	public Response updateCommentary(Commentary comment) {
 		Commentary oldComment = repository.getCommentary(comment.getId());
 		if(oldComment == null) {
 			throw new NotFoundException("The commentary with id = " + oldComment + "was not found");
@@ -98,7 +96,7 @@ public class CommentaryResource {
 			throw new BadRequestException("The body property can not be null");
 		}
 		
-		if(!oldComment.getTitle().equals(comment.getTitle())) {
+		if(!oldComment.getBody().equals(comment.getBody())) {
 			return Response.status(javax.ws.rs.core.Response.Status.CONFLICT).build();
 		}
 		

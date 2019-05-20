@@ -149,5 +149,4 @@
     	<servlet-name>Resteasy</servlet-name>
     	<url-pattern>/api/*</url-pattern>	
     </servlet-mapping>
-
 </web-app>

@@ -47,15 +47,15 @@ public class MapCommentaryListRepository implements CommentaryListRepository{
 		comment4.setBody("Dejo bastante que desear. Falto bebida y fue un poco aburrida.");
 		addCommentary(comment4);
 		
-		Commentary gotye = new Commentary();
-		gotye.setTitle("Abraham Birthday");
-		gotye.setBody("Estuvo bien pero no repitiria");
-		addCommentary(gotye);
+		Commentary comment5 = new Commentary();
+		comment5.setTitle("Abraham Birthday");
+		comment5.setBody("Estuvo bien pero no repitiria");
+		addCommentary(comment5);
 	}
 
 	// Song related operations
 	public void addCommentary(Commentary s) {
-		String id = "s" + index++;
+		String id = "planeando" + index++;
 		s.setId(id);
 		commentaryMap.put(id, s);
 	}
