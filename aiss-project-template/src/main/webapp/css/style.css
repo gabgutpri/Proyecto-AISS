@@ -4,7 +4,7 @@ body {
 }
 
 .planeando_logo{
-	margin: 0px 800px;
+	margin: 0% 43%;
     display: block;
     text-align: center;
 }
@@ -23,7 +23,7 @@ a.link:hover, a.link:active{
 }
 
 .links{
-	margin: 0px 725px;
+	margin: 0% 39%;
 	display: block;
 	text-align: center;
 	width: 20%;
@@ -75,17 +75,35 @@ th {
 
 
 /* Links */
-
-.button, .button:visited {
+.buttonIndex, .buttonIndex:visited {
     background-color: #4CAF50; /* Green */
-    margin: 10px 860px;
+    margin: 1% 46.3%;
     border: none;
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    display: block;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttonIndex:hover, .buttonIndex:active  {
+    background: #3e8e41;
+    text-decoration: none;
+}
+
+.button, .button:visited {
+    background-color: #4CAF50; /* Green */
+    margin: 10px 0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
     font-size: 16px;
     cursor: pointer;
 }
@@ -101,7 +119,7 @@ th {
 input[type=text] {
     width: 20%;
     padding: 10px 15px;
-    margin: 8px 725px;
+    margin: 0% 39%;
     text-align: center;
     display: block;
     border: 1px solid #ccc;

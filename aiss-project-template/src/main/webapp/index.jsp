@@ -14,7 +14,7 @@
     <div id="searchDiv">
 		<form id="searchForm" action="eventBriteEventList" method="post">
 			<input type="text" name="searchQuery" placeholder="Search for events!" required/> 
-			<input class="button" type="submit" name="searchBtn" title="search" value="Search">
+			<input class="buttonIndex" type="submit" name="searchBtn" title="search" value="Search">
 		</form>
 	</div>
 	<div class="links">
