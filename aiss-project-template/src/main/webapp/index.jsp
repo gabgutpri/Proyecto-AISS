@@ -4,29 +4,19 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Proyecto AISS</title>
+        <title>Planeando</title>
     </head>
 
     <body>
-        <h1>Proyecto AISS</h1>
+        <h1>Planeando</h1>
 
-        <div id="searchDiv">
+    <div id="searchDiv">
 		<form id="searchForm" action="eventBriteEventList" method="post">
 			<input type="text" name="searchQuery" required/> 
 			<input type="submit" name="searchBtn" title="search" value="search">
 		</form>
 	</div>
-	 <div id="pruebaDiv">
-	 	<label>Forecast test:</label>
-		<form id="pruebaForm" action="index" method="get">
-			<label>Introduce coordenates (ex.:42.3601,-71.0589):</label>
-			<input type="text" name="coordenates" required/>
-			<label>Introduce date (ex.:2019-05-26):</label>
-			<input type="text" name="date" required/> 
-			<input type="submit" name="searchFore" title="searchForecast" value="searchForecast">
-		</form>
-	</div>
-	<li><a href="/calendarOwnerCalendar">User's calendar</a></li> <!-- Añadir "?id=primary" con un clemdarOwnerCalendar mas genérico -->
+	<a href="/calendarOwnerCalendar">User's calendar</a>
         <h2> Tokens de OAuth </h2>
         <ul>
             <li><strong>EventBrite:</strong>
@@ -40,6 +30,6 @@
                 </ul>
             </li>
         </ul>
-        <li><a href="documentationAPI.html">Documentación de nuestra API</a></li>
+        <a href="documentationAPI.html">Documentación de nuestra API</a>
     </body>
 </html>
