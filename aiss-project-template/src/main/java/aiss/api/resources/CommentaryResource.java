@@ -7,6 +7,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -23,7 +24,9 @@ import aiss.model.repository.CommentaryListRepository;
 import aiss.model.repository.MapCommentaryListRepository;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Path("/comentaries")
@@ -44,8 +47,16 @@ public class CommentaryResource {
 	
 	@GET
 	@Produces("application/json")
-	public Collection<Commentary> getAll() {
-		return repository.getAllCommentaries();
+	public Collection<Commentary> getAll(@QueryParam("title") String title) {
+		List<Commentary> result = new ArrayList<>();
+		
+		for(Commentary com: repository.getAllCommentaries()) {
+			if(title == null || title.equals("") || com.getTitle().equals(title)) {
+				result.add(com);
+			}
+		}
+		
+		return result;
 	}
 	
 	
