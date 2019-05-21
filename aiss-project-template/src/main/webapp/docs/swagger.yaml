@@ -1,33 +1,34 @@
-swagger: '2.0'
+---
+swagger: "2.0"
 info:
   description: This is a Commentaries API
   version: 1.0.0
   title: AISS API
-  # put the contact info for your development or API team
   contact:
     email: AISSproyect@AISSproyect.com
-
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-
-# tags are used for organizing operations
+host: virtserver.swaggerhub.com
+basePath: /proyecto-aiss/proyecto-aiss/1.0.0
 tags:
 - name: admins
   description: Secured Admin - only for privacy policy
 - name: developers
   description: Operations available to regular developers
-
+schemes:
+- https
+- http
 paths:
   /commentaries/{id}:
     get:
       tags:
       - developers
       summary: searches commentary
-      operationId: searchCommentary
       description: |
         By passing in the appropriate options, you can search for
         available commentary in the system
+      operationId: searchCommentary
       produces:
       - application/json
       parameters:
@@ -36,19 +37,6 @@ paths:
         description: pass an optional search string for looking up commentary
         required: true
         type: string
-      - in: query
-        name: skip
-        description: number of records to skip for pagination
-        type: integer
-        format: int32
-        minimum: 0
-      - in: query
-        name: limit
-        description: maximum number of records to return
-        type: integer
-        format: int32
-        minimum: 0
-        maximum: 50
       responses:
         200:
           description: successful operation
@@ -58,16 +46,45 @@ paths:
               $ref: '#/definitions/CommentaryItem'
         400:
           description: bad input parameter
+        404:
+          description: not found
+        default:
+          description: unexpected error
+    put:
+      tags:
+      - admins
+      summary: change a commentary item
+      description: |
+        You can change for available commentary in the system
+        if it doesn't comply with the privacy policy
+      operationId: changeCommentary
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: pass an search string for looking up commentary and change it
+        required: true
+        type: string
+      responses:
+        204:
+          description: no content
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CommentaryItem'
         default:
           description: unexpected error
     delete:
       tags:
       - admins
       summary: delete a commentary item
-      operationId: deleteCommentary
       description: |
         You can delete for available commentary in the system
         if it doesn't comply with the privacy policy
+      operationId: deleteCommentary
       consumes:
       - application/json
       produces:
@@ -85,42 +102,35 @@ paths:
           description: I'm a teapot
         default:
           description: unexpected error
-    put:
+  /commentaries:
+    get:
       tags:
-      - admins
-      summary: change a commentary item
-      operationId: changeCommentary
+      - developers
+      summary: searches commentaries
       description: |
-        You can change for available commentary in the system
-        if it doesn't comply with the privacy policy
-      consumes:
-      - application/json
+        You can search for available commentaries in the system
+      operationId: searchesCommentaries
       produces:
       - application/json
-      parameters: 
-      - name: id
-        in: path
-        description: pass an search string for looking up commentary
-          and change it
-        required: true
-        type: string
+      parameters: []
       responses:
-        204:
-          description: "no content"
+        200:
+          description: successful operation
           schema:
             type: array
             items:
               $ref: '#/definitions/CommentaryItem'
+        404:
+          description: not found
         default:
           description: unexpected error
-  /commentaries:
     post:
       tags:
       - developers
       summary: adds a commentary item
-      operationId: addCommentary
       description: |
         Adds an item to the system
+      operationId: addCommentary
       consumes:
       - application/json
       produces:
@@ -129,6 +139,7 @@ paths:
       - in: body
         name: commentaryItem
         description: Commentary item to add
+        required: false
         schema:
           $ref: '#/definitions/CommentaryItem'
       responses:
@@ -140,8 +151,6 @@ paths:
           description: an existing item already exists
         default:
           description: unexpected error
-    
-    
 definitions:
   CommentaryItem:
     type: object
@@ -155,13 +164,8 @@ definitions:
         example: d290-6c54-4b01-90e6-d70174
       name:
         type: string
-        example: "The best party ever"
+        example: The best party ever
       releaseDate:
         type: string
         format: date-time
         example: 2016-08-29T09:12:33.001Z
-host: virtserver.swaggerhub.com
-basePath: /proyecto-aiss/proyecto-aiss/1.0.0
-schemes:
- - https
- - http
