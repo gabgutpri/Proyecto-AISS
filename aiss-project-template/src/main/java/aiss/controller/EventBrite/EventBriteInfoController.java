@@ -1,4 +1,4 @@
-package aiss.controller.EventBriteDarkSkyHereMaps;
+package aiss.controller.EventBrite;
 
 import java.io.IOException;
 import java.util.logging.Level;

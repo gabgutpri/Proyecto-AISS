@@ -1,4 +1,4 @@
-package aiss.controller.EventBriteDarkSkyHereMaps;
+package aiss.controller.EventBrite;
 
 import aiss.model.eventBrite.ListEvent;
 import aiss.model.eventBrite.Venue;
