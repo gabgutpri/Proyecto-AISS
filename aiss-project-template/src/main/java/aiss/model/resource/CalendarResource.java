@@ -19,8 +19,6 @@ public class CalendarResource {
         this.access_token = access_token;
     }
     
-    // Events
-    
     public boolean deleteEvent(String cId, String eId) {
         ClientResource cr = null;
         boolean result = true;
