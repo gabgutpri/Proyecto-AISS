@@ -9,6 +9,18 @@ body {
     text-align: center;
 }
 
+.icon{
+	display: block;
+	text-align: center;
+	margin: 0% 30%;
+}
+
+.map{
+	display: block;
+	text-align: center;
+	margin: 0% 43%;
+}
+
 a.link:link, a.link:visited{
     text-decoration: none;
     color: aliceblue;
@@ -30,6 +42,7 @@ a.link:hover, a.link:active{
 	background-color: darkblue;
 }
 
+
 /* Layout */
 
 .container {
@@ -45,6 +58,10 @@ a.link:hover, a.link:active{
 /* Headers */
 
 h1 {
+    display: block;
+    width: 20%;
+	text-align: center;
+	margin: 0% 39%;	
     color: #4CAF50;
     font-size: 2em;
 }
@@ -53,7 +70,8 @@ h1 {
 /* Tables */
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 40%;
+    margin: 1% 30%;
 }
 
 td, th {
@@ -96,7 +114,7 @@ th {
 
 .button, .button:visited {
     background-color: #4CAF50; /* Green */
-    margin: 10px 0;
+    margin: 10px 0px;
     border: none;
     color: white;
     padding: 10px 20px;

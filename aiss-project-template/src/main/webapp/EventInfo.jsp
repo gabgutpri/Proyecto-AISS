@@ -5,16 +5,30 @@
 
 <h1>Events</h1>
 
-<div class="container">
+	<table>
+		<tr>
+            <th>City</th>
+            <td><c:out value="${venue.address.city}"/></td>
+        </tr>
+        <tr>
+            <th>Latitude</th>
+            <td><c:out value="${venue.latitude}"/></td>
+        </tr>
+        <tr>
+            <th>Longitude</th>
+            <td><c:out value="${venue.longitude}"/></td>
+        </tr>
+    </table>
+    <img class="map" alt="Map from location" src="${map}">
+    <table>
+        <tr>
+            <th>Forecast for the event's starting day</th>
+            <td><c:out value="${forecast}"/></td>
+        </tr>
+	</table>
 
-    <p class="message">${message}</p>
 
-    			<p>City: <c:out value="${venue.address.city}"/></p>
-                <p>Latitude: <c:out value="${venue.latitude}"/></p>
-                <p>Longitude: <c:out value="${venue.longitude}"/></p>
-                <p>Forecast for the event's starting day: <c:out value="${forecast}"/></p>
-                
-                <div id="icono" atri="${icon}">
+                <div class="icon" id="icono" atri="${icon}">
                 <canvas id="icon" width="128" height="128"></canvas>
                 </div>
                 
@@ -44,17 +58,16 @@
     			}
     			icons.play();
 				</script>
-				
-                <img alt="Map from location" src="${map}">
-    <p>
-        <button type="button" onclick="goBack()" class="button">Back</button> 
+
+        <button class="buttonIndex" type="button" onclick="goBack()" class="button">Back</button> 
         
 		<script>
 		function goBack() {
  			window.history.back();
 		}
 		</script>
+		
+<div class="links">
+	<a class="link" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
 </div>
-<a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
-
 <%@include file="includes/footer.jsp"%>
