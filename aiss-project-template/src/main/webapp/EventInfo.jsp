@@ -59,7 +59,7 @@
     			icons.play();
 				</script>
 
-        <button class="buttonIndex" type="button" onclick="goBack()" class="button">Back</button> 
+        <button class="buttonBack" type="button" onclick="goBack()" class="button">Back</button> 
         
 		<script>
 		function goBack() {

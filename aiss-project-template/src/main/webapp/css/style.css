@@ -42,12 +42,14 @@ a.link:hover, a.link:active{
 	background-color: darkblue;
 }
 
+.messageM{
+	width: 100%;
+	text-align: center;
+}
+
 
 /* Layout */
 
-.container {
-    width:500px;
-}
 
 .bottom_links {
     text-align: right;
@@ -61,7 +63,7 @@ h1 {
     display: block;
     width: 20%;
 	text-align: center;
-	margin: 0% 39%;	
+	margin: 0% 38.9%;	
     color: #4CAF50;
     font-size: 2em;
 }
@@ -108,6 +110,44 @@ th {
 }
 
 .buttonIndex:hover, .buttonIndex:active  {
+    background: #3e8e41;
+    text-decoration: none;
+}
+
+.buttonBack, .buttonBack:visited {
+    background-color: #4CAF50; /* Green */
+    margin: 1% 47.3%;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttonBack:hover, .buttonBack:active  {
+    background: #3e8e41;
+    text-decoration: none;
+}
+
+.buttonBack2, .buttonBack2:visited {
+    background-color: #4CAF50; /* Green */
+    margin: 1% 47%;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttonBack2:hover, .buttonBack2:active  {
     background: #3e8e41;
     text-decoration: none;
 }
