@@ -24,7 +24,7 @@ public class CalendarDeleteEventController extends HttpServlet{
             CalendarResource spResource = new CalendarResource(accessToken);
             spResource.deleteEvent(idCalendar, idEvent);
             req.setAttribute("message", "Event with id "+idEvent+" was deleted correctly");
-            req.getRequestDispatcher("/deletingEvent.jsp").forward(req, resp);
+            req.getRequestDispatcher("/DeletingEvent.jsp").forward(req, resp);
         } else {
             log.info("Trying to access Google Calendar without an access token, redirecting to OAuth servlet");
             req.getRequestDispatcher("/AuthController/GoogleCalendar").forward(req, resp);

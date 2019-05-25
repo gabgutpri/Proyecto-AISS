@@ -34,7 +34,7 @@ public class CalendarInsertEventController extends HttpServlet{
             event.setId(idEvent); event.setSummary(summary); event.setStart(s); event.setEnd(e); event.setDescription(venueId);
             spResource.insertEvent(idCalendar, event);
             req.setAttribute("message", "Event with id "+idEvent+" was added correctly");
-            req.getRequestDispatcher("/addingEvent.jsp").forward(req, resp);
+            req.getRequestDispatcher("/AddingEvent.jsp").forward(req, resp);
         } else {
             log.info("Trying to access Google Calendar without an access token, redirecting to OAuth servlet");
             req.getRequestDispatcher("/AuthController/GoogleCalendar").forward(req, resp);
