@@ -8,7 +8,6 @@
 
     <table id="event">
         <tr>
-        	<th>Id</th>
         	<th>Name</th>
             <th>Start date</th>
             <th>End date</th>
@@ -19,7 +18,6 @@
         </tr> 
         <c:forEach items="${events.items}" var="event">  
             <tr>
-            	<td><c:out value="${event.id}"/></td>
             	<td><c:out value="${event.summary}"/></td>
                 <td><c:out value="${event.start.dateTime}"/></td>
                 <td><c:out value="${event.end.dateTime}"/></td>
